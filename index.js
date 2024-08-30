@@ -26,6 +26,7 @@ async function handleSearchClick() {
     renderMovies(moviesWithFullData);
     removeTrailingDivider();
     addMovieToWatchList();
+    searchInput.value = "";
   }
 }
 
