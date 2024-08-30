@@ -1,0 +1,89 @@
+.fa-video{
+    font-size: 0.875rem;
+    color: #E22CC1;
+}
+
+.fa-circle-minus{
+    font-size: 1.25rem;
+    color: #E22C84;
+}
+
+.remove-from-watchlist-btn{
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    color: #E22C84;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.remove-from-watchlist-btn:focus{
+    outline: none;
+}
+
+.remove-from-watchlist-btn:hover .fa-circle-minus,
+.remove-from-watchlist-btn:hover{
+    color: #E64A96;
+}
+
+.remove-from-watchlist-btn:active .fa-circle-minus {
+    color: #CC1C71;
+}
+
+
+.empty-watchlist-container{
+    /* background-color: thistle; */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    color: #BFBFBF;
+    width: 75%;
+    text-align: center;
+}
+
+.empty-watchlist-text{
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.empty-watchlist-nav{
+    display: flex;
+    gap: 0.5em;
+}
+
+.fa-circle-plus{
+    font-size: 1.125rem;
+}
+
+.empty-watchlist-link{
+    font-size: 0.875rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.empty-watchlist-link:visited{
+    text-decoration: none;
+    color: white;
+}
+
+.empty-watchlist-nav:hover .empty-watchlist-link{
+    border-bottom: 2px solid #8A2BE2;
+}
+
+.empty-watchlist-nav:hover .fa-circle-plus{
+    color: #59E8A3;
+    cursor: pointer;
+}
+
+.empty-watchlist-nav:active .fa-circle-plus{
+    color: #19BB6D;
+}
