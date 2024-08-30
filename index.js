@@ -5,17 +5,21 @@ let moviesWithFullData = [];
 searchBtn.addEventListener("click", handleSearchClick);
 
 async function handleSearchClick() {
+  document.querySelector("main").innerHTML = `
+            <p class="exploring-text">Fetching Movies...</p>
+    `;
   const res = await fetch(
     `https://www.omdbapi.com/?apikey=db57fda8&s=${searchInput.value}&type=movie`
   );
+
   const data = await res.json();
   if (data.Response === "False") {
     searchInput.value = "Searching something with no data";
     document.querySelector("main").innerHTML = `
-            <div class="no-movies-found-div">
-                <p>Unable to find what you’re looking for. Please try another search.</p>
-            </div>
-        `;
+                <div class="no-movies-found-div">
+                    <p>Unable to find what you’re looking for. Please try another search.</p>
+                </div>
+            `;
   } else {
     const movies = data.Search;
     moviesWithFullData = await getMoviesWithFullData(movies);
@@ -92,23 +96,23 @@ function renderMovies(movies) {
         : `<i class="fa-solid fa-circle-plus" data-add-movie-id="${id}"></i>Watchlist`;
 
       return `
-            <div class="movie">
-                <img class="poster" src=${poster}>
-                <div class="movie-header">
-                    <div class="title-add">
-                        <h2>${title}</h2>
-                        <button id="${id}" class="add-to-watchlist-btn" data-add-movie-id="${id}">${buttonHtml}</button>
+                <div class="movie">
+                    <img class="poster" src=${poster}>
+                    <div class="movie-header">
+                        <div class="title-add">
+                            <h2>${title}</h2>
+                            <button id="${id}" class="add-to-watchlist-btn" data-add-movie-id="${id}">${buttonHtml}</button>
+                        </div>
+                        <div class="duration-genre-rating">
+                            <p class="duration">${duration}</p>
+                            <p class="genre">${genre}</p>
+                            <p class="rating"><i class="fa-solid fa-star"></i>  ${rating}</p>                                   
+                        </div>
+                        <p class="plot">${plot}</p>     
                     </div>
-                    <div class="duration-genre-rating">
-                        <p class="duration">${duration}</p>
-                        <p class="genre">${genre}</p>
-                        <p class="rating"><i class="fa-solid fa-star"></i>  ${rating}</p>                                   
-                    </div>
-                    <p class="plot">${plot}</p>     
                 </div>
-            </div>
-            <div class="movie-divider"></div>
-        `;
+                <div class="movie-divider"></div>
+            `;
     })
     .join("");
 }
